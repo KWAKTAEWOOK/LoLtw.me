@@ -4,6 +4,7 @@ import "../domain/Main.css";
 const Main = () => {
   const [summonerName, setsummonerName] = useState("");
   const [data, setdata] = useState("");
+  const [league, setleague] = useState("");
   const onSubmoit = (e) => {
     e.preventDefault();
     getdata();
@@ -15,9 +16,19 @@ const Main = () => {
       method: "get",
     });
     setdata(data.data);
+    getLEAGUE();
   };
-  console.log(summonerName);
-  console.log(data);
+
+  const getLEAGUE = async () => {
+    const league = await axios({
+      url: `https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${data.id}?api_key=RGAPI-28a8695d-1e45-4779-87e0-1c4bcf227869`,
+      method: "get",
+    });
+    setleague(league.data);
+  };
+
+  console.log("솬사정보", data);
+  console.log("리그정보", league);
   return (
     <div className="main">
       <div>

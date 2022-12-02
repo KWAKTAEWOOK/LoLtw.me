@@ -1,0 +1,79 @@
+.userbox {
+  display: flex;
+  position: relative;
+  width: 1020px;
+  height: 200px;
+  background-color: #31313cfd;
+  justify-content: last baseline;
+  align-items: center;
+  border-radius: 20px;
+  margin: auto;
+}
+.userboxbut {
+  display: block;
+}
+.usericon {
+  text-align: center;
+}
+.level {
+  position: relative;
+  border: 1px solid none;
+  width: 50px;
+  margin: auto;
+  margin-top: -15px;
+  background-color: #555565fd;
+  border-radius: 10px;
+  font-family: "BOMBARD";
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.userinfo {
+  display: inline-flex;
+  width: auto;
+  padding: 20px 0px 20px 20px;
+}
+.rankimg > img {
+  width: 170px;
+  height: 170px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.iconimg {
+  border-radius: 20%;
+}
+
+.username {
+  font-size: 24px;
+  font-family: "Malgun Gothic";
+  font-weight: bolder;
+  margin: 20px auto;
+  color: #dfd0d0;
+}
+.usercontent {
+  padding-left: 20px;
+}
+.userboxbut {
+  display: flex;
+  position: relative;
+
+  font-size: 20px;
+  margin-top: 30px;
+}
+.updatebut {
+  position: relative;
+  border: #5383e8;
+  background: #5383e8;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  font-size: 15px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+  outline: none;
+}

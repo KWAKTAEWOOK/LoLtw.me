@@ -1,10 +1,15 @@
+import { Routes, Route } from "react-router-dom";
+import React from "react";
 import "./App.css";
 import Main from "./Components/domain/Main";
-import React from "react";
+import Userinfo from "./Components/userinfo/Userinfo";
 const App = () => {
   return (
     <div>
-      <Main />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/info" element={<Userinfo />} />
+      </Routes>
     </div>
   );
 };
