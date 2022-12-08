@@ -4,10 +4,13 @@ import { useParams } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { langState, userState } from "../../recoil";
 import axios from "axios";
+import League from "./League";
 const Userinfo = () => {
   const [lol, setlol] = useRecoilState(userState);
   const [lang, setlang] = useRecoilState(langState);
-  const [league, setleague] = useState("");
+  const [league, setleague] = useState([]);
+  const [datas, setData] = useState("");
+
   useEffect(() => {
     const getleague = async (e) => {
       try {
@@ -19,12 +22,11 @@ const Userinfo = () => {
         setleague(league.data);
       } catch (e) {
         alert("값 입력 실패");
-        console.log({});
       }
     };
     getleague();
   }, []);
-  console.log(league);
+  console.log("리그정보 ", league);
   console.log(lol);
   console.log(lang);
   return (
@@ -54,52 +56,13 @@ const Userinfo = () => {
             </div>
           </div>
         </div>
+        <>
+          {league.map((leagues, index) => (
+            <League leagues={{ leagues }} key={index} />
+          ))}
+        </>
 
-        <div className="rankbox">
-          <div className="rankimg">
-            <img
-              src={`/images/${(league[0] && league[0].tier) || "Unranked"}.png`}
-              alt=""
-            />
-            <div className="level">
-              {league[0] &&
-                (league[0].tier === "MASTER" ||
-                league[0].tier === "CHALLENGER" ||
-                league[0].tier === "GRANDMASTER"
-                  ? null
-                  : league[0].rank)}
-            </div>
-          </div>
-          <div className="rankinfo">
-            <div>
-              {(league[0] &&
-                (league[0].queueType === "RANKED_FLEX_SR"
-                  ? "자유 랭크"
-                  : "솔로 랭크")) ||
-                "솔로 랭크"}
-            </div>
-            {(league[0] && (
-              <>
-                <div>{league[0] && league[0].leaguePoints + "LP"} </div>
-                <div>
-                  {league[0] && league[0].wins + "승 "}
-                  {league[0] && league[0].losses + "패"}
-                </div>
-                <div>
-                  {league[0] &&
-                    "승률 " +
-                      (
-                        (league[0].wins / (league[0].wins + league[0].losses)) *
-                        100
-                      ).toFixed(2)}
-                </div>
-              </>
-            )) ||
-              "Unranked"}
-          </div>
-        </div>
-
-        <div className="rankbox">
+        {/* <div className="rankbox">
           <div className="rankimg">
             <img
               src={`/images/${(league[1] && league[1].tier) || "Unranked"}.png`}
@@ -142,7 +105,7 @@ const Userinfo = () => {
             )) ||
               "Unranked"}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
