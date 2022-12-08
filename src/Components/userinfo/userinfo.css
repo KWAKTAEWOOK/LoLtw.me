@@ -1,7 +1,7 @@
 .userbox {
   display: flex;
   position: relative;
-  width: 1020px;
+  width: 1200px;
   height: 200px;
   background-color: #31313cfd;
   justify-content: last baseline;
@@ -33,15 +33,12 @@
   width: auto;
   padding: 20px 0px 20px 20px;
 }
-.rankimg > img {
-  width: 170px;
-  height: 170px;
-  border-radius: 5px;
-  object-fit: cover;
-}
 
 .iconimg {
   border-radius: 20%;
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
 }
 
 .username {
@@ -55,25 +52,68 @@
   padding-left: 20px;
 }
 .userboxbut {
-  display: flex;
+  display: block;
   position: relative;
-
-  font-size: 20px;
-  margin-top: 30px;
+  text-align: center;
+  font-size: 17px;
+  margin-top: 40px;
+  font-weight: 550;
 }
 .updatebut {
   position: relative;
   border: #5383e8;
-  background: #5383e8;
+  background: #4171d6;
   color: rgb(255, 255, 255);
   border-radius: 5px;
-  font-size: 15px;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
+  font-size: 17px;
+  padding: 0;
+  height: 40px;
+  font-weight: 550;
+  width: 80px;
+}
+.updatebut:hover {
+  background: #4170d6d9;
 }
 a {
   color: #fff;
   text-decoration: none;
   outline: none;
+}
+.loltime {
+  display: inline-block;
+  position: relative;
+  line-height: 40px;
+  background-color: rgba(152, 64, 235);
+  margin-left: 10px;
+  border-radius: 5px;
+  width: 185px;
+  top: 0.5px;
+}
+.loltime:hover {
+  background-color: rgba(152, 64, 235, 0.85);
+}
+
+.rankbox {
+  position: relative;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  height: 200px;
+  width: 300px;
+  margin: auto 30px;
+}
+.rankinfo {
+  display: inline-block;
+  justify-content: center;
+  justify-items: center;
+  line-height: 30px;
+  width: 230px;
+  height: 70px;
+  color: #9aa4af;
+}
+.rankimg > img {
+  width: 160px;
+  height: 180px;
+  border-radius: 5px;
+  object-fit: fill;
 }
