@@ -1,9 +1,8 @@
 import React from "react";
 
-const League = (leagues, index) => {
-  console.log(leagues);
-  console.log(leagues);
-  console.log(leagues.leagues.rank);
+const League = ({ leagues, index }) => {
+  console.log("map으로 받음", leagues);
+
   return (
     <div>
       <div className="rankbox">
@@ -19,11 +18,9 @@ const League = (leagues, index) => {
         </div>
         <div className="rankinfo">
           <div>
-            {(leagues &&
-              (leagues.queueType === "RANKED_FLEX_SR"
-                ? "자유 랭크"
-                : "솔로 랭크")) ||
-              "솔로 랭크"}
+            {(leagues.queueType === "RANKED_FLEX_SR"
+              ? "자유 랭크"
+              : "솔로 랭크") || "솔로 랭크"}
           </div>
           {(leagues && (
             <>
@@ -35,7 +32,7 @@ const League = (leagues, index) => {
               <div>
                 {"승률 " +
                   (
-                    (leagues[0].wins / (leagues[0].wins + leagues[0].losses)) *
+                    (leagues.wins / (leagues.wins + leagues.losses)) *
                     100
                   ).toFixed(2)}
               </div>
@@ -44,6 +41,19 @@ const League = (leagues, index) => {
             "Unranked"}
         </div>
       </div>
+
+      {leagues[1] && (
+        <div className="rankbox">
+          <div className="rankimg">
+            <img src={`/images/Unranked.png`} alt="" />
+            <div className="level">{leagues && null}</div>
+          </div>
+          <div className="rankinfo">
+            <div>{leagues && "자유 랭크"}</div>
+            {leagues && "Unranked"}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

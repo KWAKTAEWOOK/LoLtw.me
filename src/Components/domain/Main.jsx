@@ -12,7 +12,7 @@ const Main = () => {
 
   const getdata = async () => {
     const data = await axios({
-      url: `https://${lang}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=RGAPI-8ec036a1-28ee-49bf-a6c3-ebae2c8080b9`,
+      url: `https://${lang}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=RGAPI-cd7f3746-3525-444a-9008-36b71d14f28c`,
       method: "get",
     });
     setdata(data.data);
