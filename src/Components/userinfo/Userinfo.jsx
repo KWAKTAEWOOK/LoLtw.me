@@ -5,25 +5,42 @@ import { useRecoilState } from "recoil";
 import { langState, userState } from "../../recoil";
 import axios from "axios";
 import League from "./League";
+import Topbar from "../Topbar/Topbar";
+import { API_key } from "../../utils";
 const Userinfo = () => {
   const [lol, setlol] = useRecoilState(userState);
   const [lang, setlang] = useRecoilState(langState);
   const [league, setleague] = useState([]);
-  const [datas, setData] = useState("");
+
+  const getleague = async (e) => {
+    try {
+      const league = await axios({
+        url: `https://${lang}.api.riotgames.com/lol/league/v4/entries/by-summoner/${lol.id}?${API_key}`,
+        method: "get",
+      });
+      console.log(league.data);
+      if (league.data != "") {
+        setleague(league.data);
+      } else {
+        setleague([
+          {
+            queueType: "RANKED_SOLO_5x5",
+            rank: null,
+            tier: "Unranked",
+          },
+          {
+            queueType: "RANKED_FLEX_SR",
+            rank: null,
+            tier: "Unranked",
+          },
+        ]);
+      }
+    } catch (ex) {
+      alert("값 입력 실패");
+    }
+  };
 
   useEffect(() => {
-    const getleague = async (e) => {
-      try {
-        const league = await axios({
-          url: `https://${lang}.api.riotgames.com/lol/league/v4/entries/by-summoner/${lol.id}?api_key=RGAPI-cd7f3746-3525-444a-9008-36b71d14f28c`,
-          method: "get",
-        });
-
-        setleague(league.data);
-      } catch (e) {
-        alert("값 입력 실패");
-      }
-    };
     getleague();
   }, []);
   console.log("리그정보 ", league);
@@ -31,6 +48,7 @@ const Userinfo = () => {
   console.log(lang);
   return (
     <div>
+      <Topbar />
       <div className="userbox">
         <div className="userinfo">
           <div className="usericon">
@@ -45,7 +63,9 @@ const Userinfo = () => {
           <div className="usercontent">
             <div className="username">{lol.name}</div>
             <div className="userboxbut">
-              <button className="updatebut">업데이트</button>
+              <button className="updatebut" onClick={getleague}>
+                업데이트
+              </button>
               <a
                 className="loltime"
                 href={`http://ifi.gg/summoner/${lol.name}`}
@@ -57,9 +77,7 @@ const Userinfo = () => {
           </div>
         </div>
         <>
-          {league.map((leagues, index, league) => (
-            <League leagues={leagues} league={league} key={index} />
-          ))}
+          <League league={league} />
         </>
 
         {/* <div className="rankbox">

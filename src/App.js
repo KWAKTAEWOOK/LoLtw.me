@@ -10,6 +10,7 @@ import {
   useRecoilState,
   useRecoilValue,
 } from "recoil";
+import Usernull from "./Components/usernull/Usernull";
 const App = () => {
   return (
     <div>
@@ -17,6 +18,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/info" element={<Userinfo />} />
+          <Route path="/usernull" element={<Usernull />} />
         </Routes>
       </RecoilRoot>
     </div>
