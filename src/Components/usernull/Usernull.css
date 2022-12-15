@@ -1,3 +1,12 @@
 .undefined {
-  font-size: 300px;
+  font-size: 50px;
+  color: white;
+}
+.undefinedbox {
+  display: flex;
+  height: 500px;
+  width: 1200px;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
 }

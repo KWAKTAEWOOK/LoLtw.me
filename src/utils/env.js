@@ -1,1 +1,1 @@
-export const API_key = "여기에 라이엇 AIP_key를 넣을것";
+export const API_key = "api_key=RGAPI-54c007d3-4b0b-4872-b308-cc7fcd0ffbb8";

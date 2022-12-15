@@ -10,18 +10,24 @@ const Main = () => {
   const [lol, setlol] = useRecoilState(userState);
   const [langs, setlangs] = useRecoilState(langState);
 
-  const getdata = async () => {
-    const data = await axios({
-      url: `https://${lang}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?${API_key}`,
-      method: "get",
-    });
-    setdata(data.data);
-    setlol(data.data);
-    setlangs(lang);
-    window.location.href = `http://localhost:3000/info`;
+  const getdata = async (error) => {
+    try {
+      const data = await axios({
+        url: `https://${lang}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?${API_key}`,
+        method: "get",
+      });
+      setdata(data.data);
+      setlol(data.data);
+      setlangs(lang);
+      console.log("data: ", data);
+      window.location.href = `http://localhost:3000/info`;
+    } catch (error) {
+      console.log(error);
+      if (error.response.status === 404) {
+        window.location.href = `http://localhost:3000/usernull`;
+      }
+    }
   };
-  console.log(lol);
-  console.log(langs);
   const onSubmoit = (e) => {
     e.preventDefault();
     getdata();
@@ -36,7 +42,6 @@ const Main = () => {
       onSubmoit(); // Enter 입력이 되면 클릭 이벤트 실행
     }
   };
-  console.log("솬사정보", data);
 
   return (
     <div className="main">

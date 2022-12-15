@@ -19,13 +19,16 @@ const Topbar = () => {
       setdata(data.data);
       setlol(data.data);
       setlangs(lang);
+      console.log("data: ", data);
       window.location.href = `http://localhost:3000/info`;
     } catch (error) {
-      console.log(error.config);
+      console.log(error);
+      if (error.response.status === 404) {
+        window.location.href = `http://localhost:3000/usernull`;
+      }
     }
   };
 
-  console.log();
   const onSubmoit = (e) => {
     e.preventDefault();
     getdata();

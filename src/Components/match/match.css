@@ -1,0 +1,122 @@
+.matchbox {
+  display: flex;
+  width: 1200px;
+  min-height: 300px;
+  background-color: #555565fd;
+  margin: auto;
+  border-radius: 10px;
+}
+.match {
+  display: inline-flex;
+  width: 800px;
+  height: 10%;
+  background-color: rgb(56, 64, 122);
+  border-radius: 10px;
+  margin-left: auto;
+  border-top-width: 5px;
+  border-top-style: solid;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-color: rgba(39, 63, 246, 0.315);
+}
+.gametime {
+  display: inline-block;
+  width: 100px;
+  height: 60px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 40px 10px;
+  line-height: 30px;
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-color: rgba(39, 63, 246, 0.836);
+}
+.gameinfobox {
+  display: inline-flex;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+}
+.championbox {
+  width: 300px;
+  display: flex;
+}
+
+.champion {
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+.champion > div > img {
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  border-radius: 100%;
+}
+.spell {
+  width: 30px;
+  height: auto;
+  margin: auto 0;
+}
+.spell > div > img {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  margin: auto;
+}
+.runes {
+  width: 30px;
+  height: auto;
+  margin: auto 0;
+}
+.runes > div > img {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  margin: auto;
+}
+.runes > div > img:nth-child(1) {
+  background-color: black;
+  border-radius: 100%;
+}
+.KDAinof {
+  width: 300px;
+  height: auto;
+  margin: auto;
+  text-align: center;
+}
+.item {
+  display: inline-flex;
+  margin: auto;
+}
+.item > div > img {
+  width: 50px;
+  height: 50px;
+}
+.레벨 {
+  position: absolute;
+  padding: 1px 4px 3px 4px;
+  background-color: #31313cfd;
+  color: #fff;
+  border-radius: 100%;
+  top: 43%;
+}
+.KDA {
+  display: inline-flex;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  color: #fff;
+  margin: auto;
+}
+.deaths {
+  color: red;
+}
+.슬레쉬 {
+  color: darkgrey;
+}
+.평점 {
+  color: darkgrey;
+  font-weight: 600;
+}

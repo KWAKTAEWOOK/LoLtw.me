@@ -2,7 +2,6 @@ import React from "react";
 
 const League = ({ league }) => {
   function Code({ leagues, index }) {
-    console.log("리그", league[0].queueType);
     return (
       <>
         <div className="rankbox" key={index}>
