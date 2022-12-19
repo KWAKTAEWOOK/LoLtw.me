@@ -6,7 +6,7 @@
   margin: auto;
   border-radius: 10px;
 }
-.match {
+.matchwin {
   display: inline-flex;
   width: 800px;
   height: 10%;
@@ -19,7 +19,20 @@
   border-bottom-style: solid;
   border-color: rgba(39, 63, 246, 0.315);
 }
-.gametime {
+.matchlost {
+  display: inline-flex;
+  width: 800px;
+  height: 10%;
+  background-color: rgb(122, 56, 56);
+  border-radius: 10px;
+  margin-left: auto;
+  border-top-width: 5px;
+  border-top-style: solid;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-color: rgba(246, 39, 39, 0.315);
+}
+.gametimewin {
   display: inline-block;
   width: 100px;
   height: 60px;
@@ -32,6 +45,21 @@
   border-left-width: 3px;
   border-left-style: solid;
   border-color: rgba(39, 63, 246, 0.836);
+}
+
+.gametimelost {
+  display: inline-block;
+  width: 100px;
+  height: 60px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 40px 10px;
+  line-height: 30px;
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-color: rgba(246, 39, 39, 0.836);
 }
 .gameinfobox {
   display: inline-flex;
